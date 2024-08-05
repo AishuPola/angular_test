@@ -1,27 +1,32 @@
 import { Component } from '@angular/core';
 import { ProductsService } from '../products.service';
-import { Route } from '@angular/router';
+import { Route, Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { ProductsComponent } from '../products/products.component';
 
 @Component({
   selector: 'app-productslist',
   standalone: true,
-  imports: [],
+  imports: [FormsModule, ProductsComponent],
   templateUrl: './productslist.component.html',
   styleUrl: './productslist.component.scss',
 })
 export class ProductslistComponent {
-  books: any;
-  filteredBooks: any;
+  products: any;
+  filteredproducts: any;
 
-  constructor(private productservice: ProductsService, private router: Route) {}
+  constructor(
+    private productservice: ProductsService,
+    private router: Router
+  ) {}
   ngOnInit() {
     this.loadProducts();
   }
 
   loadProducts() {
-    this.productservice.getBooks().then((data) => {
-      this.books = data;
-      this.filteredBooks = this.books;
+    this.productservice.getProducts().then((data) => {
+      this.products = data;
+      this.filteredproducts = this.products;
     });
   }
 }

@@ -6,7 +6,7 @@ import { Iproduct } from './app.component';
 })
 export class ProductsService {
   constructor() {}
-  getBooks(): Promise<Iproduct> {
+  getProducts(): Promise<Iproduct> {
     return fetch(`https://66b0aca46a693a95b539b8b7.mockapi.io/products`).then(
       (res) => res.json()
     );

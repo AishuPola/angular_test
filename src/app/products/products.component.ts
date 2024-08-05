@@ -1,13 +1,25 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-
+import { Component, Input } from '@angular/core';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [],
+  imports: [
+    MatInputModule,
+    MatFormFieldModule,
+    MatCardModule,
+    RouterLink,
+    MatIconModule,
+  ],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss',
 })
 export class ProductsComponent {
   constructor(private router: Router, private route: ActivatedRoute) {}
+  @Input() everyproduct: any;
+
+  @Input() id!: string;
 }

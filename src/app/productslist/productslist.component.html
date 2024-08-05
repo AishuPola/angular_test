@@ -1,20 +1,8 @@
 <!-- <p>productslist works!</p> -->
 <div class="mainclass">
-  <mat-form-field>
-    <input
-      matInput
-      placeholder="Search Books"
-      [(ngModel)]="searchTerm"
-      (input)="onSearch()"
-    />
-  </mat-form-field>
-</div>
-<div class="all-books-container">
-  @for(books of filteredBooks; track $index) {
-  <app-allbooks
-    [everybook]="books"
-    (delete_the_book)="deletebook($event)"
-    [id]="books.id"
-  />
-  }
+  <div class="all-books-container">
+    @for(products of filteredproducts; track $index) {
+    <app-products [everyproduct]="products" [id]="products.id" />
+    }
+  </div>
 </div>
