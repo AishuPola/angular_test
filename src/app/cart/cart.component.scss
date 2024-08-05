@@ -10,9 +10,14 @@
   margin:1em auto;
 }
 .image img{
-  object-fit: contain;
+  object-fit: cover;
 }
 .image{
   display:flex;
   justify-content: space-between;
+}
+.buy{
+  text-align: center;
+  place-content: center;
+  cursor: pointer;
 }

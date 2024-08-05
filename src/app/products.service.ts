@@ -35,4 +35,9 @@ export class ProductsService {
       method: 'DELETE',
     });
   }
+  getOrdersP(): Promise<Iproduct> {
+    return fetch('https://66b0aca46a693a95b539b8b7.mockapi.io/orders').then(
+      (res) => res.json()
+    );
+  }
 }
