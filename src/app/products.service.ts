@@ -5,6 +5,7 @@ import { Iproduct } from './app.component';
   providedIn: 'root',
 })
 export class ProductsService {
+  cart: any;
   constructor() {}
   getProducts(): Promise<Iproduct> {
     return fetch(`https://66b0aca46a693a95b539b8b7.mockapi.io/products`).then(
@@ -15,5 +16,23 @@ export class ProductsService {
     return fetch(
       `https://66b0aca46a693a95b539b8b7.mockapi.io/products/${id}`
     ).then((res) => res.json());
+  }
+  addToCart(everyproduct: Iproduct) {
+    return fetch(`https://66b0aca46a693a95b539b8b7.mockapi.io/products`, {
+      method: 'POST',
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify({
+        image: everyproduct.image,
+        price: everyproduct.price,
+        name: everyproduct.name,
+        quantity: 1,
+        type: 'liked',
+      }),
+    });
+  }
+  deleteCart(id: any) {
+    return fetch(`https://66b0aca46a693a95b539b8b7.mockapi.io/products/${id}`, {
+      method: 'DELETE',
+    });
   }
 }

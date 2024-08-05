@@ -25,29 +25,45 @@ export class CartComponent {
   isLoading: boolean = true;
   msg = '';
   quantity = 0;
-
+  cartitems: any;
+  totalData: any;
   constructor(
     private productservice: ProductsService,
     private route: ActivatedRoute, // DI
     private router: Router
   ) {}
+  // ngOnInit() {
+  //   let id = this.route.snapshot.paramMap.get('id') as string; // From URL
+  //   this.productservice
+  //     .getProductById(id)
+  //     .then((data) => {
+  //       this.everyproduct = data;
+  //       this.isLoading = false;
+  //     })
+  //     .catch(() => {
+  //       this.isLoading = false;
+  //       this.msg = 'Something went wrong';
+  //     });
+  // }
+
   ngOnInit() {
-    let id = this.route.snapshot.paramMap.get('id') as string; // From URL
-    this.productservice
-      .getProductById(id)
-      .then((data) => {
-        this.everyproduct = data;
-        this.isLoading = false;
-      })
-      .catch(() => {
-        this.isLoading = false;
-        this.msg = 'Something went wrong';
-      });
+    this.cartitems = this.productservice.getProducts().then((res: any) => {
+      this.totalData = res.filter((data: any) => data.type === 'liked');
+    });
   }
+
   incrementquantity() {
     this.quantity++;
   }
+
   orders() {
     this.router.navigate(['orders']);
+  }
+  deleteCart(id: any) {
+    this.productservice.deleteCart(id).then((res: any) => {
+      this.cartitems = this.productservice.getProducts().then((res: any) => {
+        this.totalData = res.filter((data: any) => data.type === 'liked');
+      });
+    });
   }
 }

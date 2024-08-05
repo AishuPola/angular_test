@@ -47,10 +47,7 @@
 
         <div class="delete-and-status">
           <p>{{ everyproduct.status }}</p>
-          <mat-icon
-            class="delete-button"
-            color="warn"
-            routerLink="/products/cart/{{ id }}"
+          <mat-icon class="delete-button" color="warn" (click)="addtocart()"
             >add_shopping_cart</mat-icon
           >
         </div>

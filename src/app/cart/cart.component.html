@@ -1,24 +1,13 @@
-<!-- <p>cart works!</p> -->
-<mat-card class="details">
-  <img src="{{ everyproduct.image }}" class="Image" />
-  <p class="Title">
-    Name:
-    {{ everyproduct.name }}
-  </p>
-
-  <p class="Category">
-    price:
-    {{ everyproduct.price }}
-  </p>
-
-  <button
-    mat-icon-button
-    aria-label="Thumbs to like the movie"
-    color="primary"
-    [matBadge]="quantity"
-    (click)="incrementquantity()"
-  >
-    <mat-icon>add</mat-icon>
-  </button>
-  <button mat-button routerLink="/orders">Buy</button>
-</mat-card>
+<div class="bg-container">
+  @for(x of totalData;track x.id){
+  <div class="card">
+    <div class="image">
+      <img src="{{ x.image }}" />
+      <div>{{ x.name }}</div>
+      <div>{{ x.quantity }}</div>
+      <div>{{ x.price }}</div>
+      <div><button (click)="deleteCart(x.id)">DELETE</button></div>
+    </div>
+  </div>
+  }
+</div>
