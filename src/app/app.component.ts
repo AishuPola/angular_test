@@ -6,6 +6,7 @@ export interface Iproduct {
   name: string;
   price: string;
   description: string;
+  quantity: number;
 }
 
 @Component({
