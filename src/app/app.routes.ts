@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { ProductslistComponent } from './productslist/productslist.component';
 import { ProductdetailsComponent } from './productdetails/productdetails.component';
 import { CartComponent } from './cart/cart.component';
+import { OrdersComponent } from './orders/orders.component';
 
 export const routes: Routes = [
   {
@@ -21,5 +22,9 @@ export const routes: Routes = [
   {
     path: 'products/cart/:id',
     component: CartComponent,
+  },
+  {
+    path: 'orders',
+    component: OrdersComponent,
   },
 ];
