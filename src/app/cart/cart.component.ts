@@ -5,7 +5,7 @@ import { ProductsService } from '../products.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Iproduct } from '../app.component';
 import { MatBadgeModule } from '@angular/material/badge';
-
+import { ProductsComponent } from '../products/products.component';
 import { ProductslistComponent } from '../productslist/productslist.component';
 @Component({
   selector: 'app-cart',
@@ -32,5 +32,8 @@ export class CartComponent {
   ) {}
   incrementquantity() {
     this.quantity++;
+  }
+  orders() {
+    this.router.navigate(['orders']);
   }
 }
