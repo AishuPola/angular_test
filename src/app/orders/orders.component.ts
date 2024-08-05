@@ -18,8 +18,6 @@ export class OrdersComponent {
   }
 
   getOrders() {
-    this.productService.getOrdersP().then((orders) => {
-      // this.orders = orders.reverse();
-    });
+    this.productService.getOrdersP().then((orders) => {});
   }
 }
